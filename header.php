@@ -30,6 +30,10 @@
 	]);
 	?>
 
+
+<!-- <button id="button">Отправить</button>
+<div id="car_content" style="background: #f5f5f5; border:1px solid #000;"></div> -->
+
 	
 	<!-- Выводим поиск -->
 <?php get_search_form( );?>

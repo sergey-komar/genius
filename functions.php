@@ -10,7 +10,17 @@
 function genius_enqueue_scripts(){
 	wp_enqueue_style('genius-general', get_template_directory_uri().'/assets/css/general.css', [], '2022', 'all');
 
-	wp_enqueue_script('genius-script', get_template_directory_uri().'/assets/js/script.js', [], 2022, true);
+	wp_enqueue_script('genius-script', get_template_directory_uri().'/assets/js/script.js', ['jquery'], 2022, true);
+
+
+
+	// wp_enqueue_script('genius-ajax,', get_template_directory_uri() . '/assets/js/ajax.js', ['jquery'],2022, true);
+	// wp_localize_script('genius-ajax', 'genius_ajax_script', 
+	// [
+	// 	'ajaxurl' => admin_url('admin-ajax.php'),//Эта функция всегда должна быть
+	// 	'nonce'   => wp_create_nonce('ajax-nonce'),//Проверяем из той кнопки пришёл ajax запрос
+	// 	'string'  => esc_html__('Hello', 'genius')
+	// ]);
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -18,6 +28,38 @@ function genius_enqueue_scripts(){
 }
 
 add_action('wp_enqueue_scripts', 'genius_enqueue_scripts');
+
+
+
+// function genius_ajax_example (){
+// 	if(!wp_verify_nonce($_REQUEST['nonce'], 'ajax-nonce')){
+		
+// 	}
+
+// 	if(isset($_REQUEST['string'])){
+// 		echo $_REQUEST['string'];
+// 	}
+
+// 	$cars = new WP_Query([
+// 		'post_type' => 'car',
+// 		'post_per_page' => -1
+// 	]);
+// 	if($cars->have_posts()) : while($cars->have_posts()) : $cars->the_post()
+
+
+// 	<?php get_template_part('parts/content', 'car');
+
+// 			 endwhile; endif;
+			
+// 			wp_reset_postdata();
+			
+// 			die;
+
+// }
+// add_action('wp_ajax_genius_ajax_example', 'genius_ajax_example');
+// add_action('wp_ajax_nopriv_genius_ajax_example', 'genius_ajax_example');
+
+
 
 
 

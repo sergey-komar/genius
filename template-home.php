@@ -80,3 +80,4 @@
 get_sidebar('cars');
  echo "Sergey";
  get_sidebar('cars');
+ get_footer();
